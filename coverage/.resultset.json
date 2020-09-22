@@ -1,6 +1,23 @@
 {
   "RSpec": {
     "coverage": {
+      "/home/xita/work_study/rails/videostructure/app/models/user.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/xita/work_study/rails/videostructure/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/home/xita/work_study/rails/videostructure/app/controllers/application_controller.rb": {
         "lines": [
           1,
@@ -10,12 +27,13 @@
       "/home/xita/work_study/rails/videostructure/app/controllers/pages_controller.rb": {
         "lines": [
           1,
+          null,
           1,
           null,
           null
         ]
       }
     },
-    "timestamp": 1600757343
+    "timestamp": 1600804009
   }
 }
