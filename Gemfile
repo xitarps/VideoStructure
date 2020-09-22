@@ -39,6 +39,9 @@ group :development, :test do
   # custom ----------------------------------------------------------
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
+
+  #Rspec for tests
+  gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do
