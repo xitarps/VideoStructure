@@ -1,0 +1,21 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/xita/work_study/rails/videostructure/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/xita/work_study/rails/videostructure/app/controllers/pages_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1600756061
+  }
+}
