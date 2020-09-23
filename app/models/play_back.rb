@@ -1,0 +1,2 @@
+class PlayBack < ApplicationRecord
+end

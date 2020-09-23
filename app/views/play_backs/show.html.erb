@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @play_back.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @play_back.url %>
+</p>
+
+<p>
+  <strong>Views:</strong>
+  <%= @play_back.views %>
+</p>
+
+<%= link_to 'Edit', edit_play_back_path(@play_back) %> |
+<%= link_to 'Back', play_backs_path %>
