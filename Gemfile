@@ -37,6 +37,9 @@ gem 'carrierwave'
 # CarrierWaveVideo - https://github.com/rheaton/carrierwave-video
 gem "carrierwave-video"
 
+# m3u8 - https://github.com/sethdeckard/m3u8
+gem 'm3u8'
+
 group :production do
   gem 'pg'
 end
