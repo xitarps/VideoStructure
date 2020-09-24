@@ -1,4 +1,5 @@
 class VideoUploader < CarrierWave::Uploader::Base
+  include CarrierWave::Video
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -52,6 +53,9 @@ class VideoUploader < CarrierWave::Uploader::Base
   # def extension_whitelist
   #   %w(jpg jpeg gif png)
   # end
+  def extension_whitelist
+    %w(mp4 avi)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
