@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<p id='notice'><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t(:title).capitalize %>:</strong>
   <%= @play_back.title %>
 </p>
 
 <p>
-  <strong>Url:</strong>
+  <strong><%= t(:url).capitalize %>:</strong>
   <%= @play_back.url %>
 </p>
 
 <p>
-  <strong>Views:</strong>
+  <strong><%= t(:views).capitalize %>:</strong>
   <%= @play_back.views %>
 </p>
 
-<%= link_to 'Edit', edit_play_back_path(@play_back) %> |
-<%= link_to 'Back', play_backs_path %>
+<%= link_to t(:edit).capitalize , edit_play_back_path(@play_back) %> |
+<%= link_to t(:back).capitalize , play_backs_path %>

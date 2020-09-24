@@ -1,14 +1,14 @@
-<p id="notice"><%= notice %></p>
+<p id='notice'><%= notice %></p>
 
-<h1>Play Backs</h1>
+<h1><%= t(:play_backs).capitalize %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Views</th>
-      <th colspan="3"></th>
+      <th><%= t(:title).capitalize %></th>
+      <th><%= t(:url).capitalize %></th>
+      <th><%= t(:views).capitalize %></th>
+      <th colspan='3'></th>
     </tr>
   </thead>
 
@@ -18,9 +18,9 @@
         <td><%= play_back.title %></td>
         <td><%= play_back.url %></td>
         <td><%= play_back.views %></td>
-        <td><%= link_to 'Show', play_back %></td>
-        <td><%= link_to 'Edit', edit_play_back_path(play_back) %></td>
-        <td><%= link_to 'Destroy', play_back, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show).capitalize, play_back %></td>
+        <td><%= link_to t(:edit).capitalize, edit_play_back_path(play_back) %></td>
+        <td><%= link_to t(:destroy).capitalize, play_back, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Play Back', new_play_back_path %>
+<%= link_to "#{t(:new).capitalize} #{t(:play_back).capitalize}", new_play_back_path %> | 
+<%= link_to t(:back).capitalize, root_path %>

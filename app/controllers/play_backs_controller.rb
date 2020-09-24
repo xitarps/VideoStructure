@@ -1,5 +1,5 @@
 class PlayBacksController < ApplicationController
-  before_action :set_play_back, only: [:show, :edit, :update, :destroy]
+  before_action :set_play_back, only: %i[show edit update destroy]
 
   # GET /play_backs
   # GET /play_backs.json
@@ -25,29 +25,20 @@ class PlayBacksController < ApplicationController
   # POST /play_backs.json
   def create
     @play_back = PlayBack.new(play_back_params)
-
-    respond_to do |format|
-      if @play_back.save
-        format.html { redirect_to @play_back, notice: 'Play back was successfully created.' }
-        format.json { render :show, status: :created, location: @play_back }
-      else
-        format.html { render :new }
-        format.json { render json: @play_back.errors, status: :unprocessable_entity }
-      end
+    if @play_back.save
+      redirect_to @play_back, notice: 'Play back was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /play_backs/1
   # PATCH/PUT /play_backs/1.json
   def update
-    respond_to do |format|
-      if @play_back.update(play_back_params)
-        format.html { redirect_to @play_back, notice: 'Play back was successfully updated.' }
-        format.json { render :show, status: :ok, location: @play_back }
-      else
-        format.html { render :edit }
-        format.json { render json: @play_back.errors, status: :unprocessable_entity }
-      end
+    if @play_back.update(play_back_params)
+      redirect_to @play_back, notice: 'Play back was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -55,20 +46,18 @@ class PlayBacksController < ApplicationController
   # DELETE /play_backs/1.json
   def destroy
     @play_back.destroy
-    respond_to do |format|
-      format.html { redirect_to play_backs_url, notice: 'Play back was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to play_backs_url, notice: 'Play back was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_play_back
-      @play_back = PlayBack.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def play_back_params
-      params.require(:play_back).permit(:title, :url, :views)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_play_back
+    @play_back = PlayBack.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def play_back_params
+    params.require(:play_back).permit(:title, :url, :views)
+  end
 end

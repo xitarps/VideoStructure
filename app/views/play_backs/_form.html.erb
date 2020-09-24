@@ -1,7 +1,7 @@
 <%= form_with(model: play_back, local: true) do |form| %>
   <% if play_back.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(play_back.errors.count, "error") %> prohibited this play_back from being saved:</h2>
+    <div id='error_explanation'>
+      <!--<h2><%= pluralize(play_back.errors.count, 'error') %> prohibited this play_back from being saved:</h2>-->
 
       <ul>
         <% play_back.errors.full_messages.each do |message| %>
@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
+  <div class='field'>
+    <%= form.label :title, t(:title).capitalize %>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= form.label :url %>
+  <div class='field'>
+    <%= form.label :url, t(:url).capitalize %>
     <%= form.text_field :url %>
   </div>
 
-  <div class="field">
-    <%= form.label :views %>
+  <div class='field'>
+    <%= form.label :views, t(:views).capitalize %>
     <%= form.number_field :views %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class='actions'>
+    <%= form.submit t(:save).capitalize %>
   </div>
 <% end %>

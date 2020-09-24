@@ -1,5 +1,5 @@
-<h1>New Play Back</h1>
+<h1><%= t(:new).capitalize %> <%= t(:play_back).capitalize %>:</h1>
 
 <%= render 'form', play_back: @play_back %>
 
-<%= link_to 'Back', play_backs_path %>
+<%= link_to t(:back).capitalize , play_backs_path %>

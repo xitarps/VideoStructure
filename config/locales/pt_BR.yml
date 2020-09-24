@@ -83,6 +83,14 @@ pt-BR:
   art: 'art'
   video_structure_main_title: 'Video Structure'
   wip: 'Work in progress...'
+  title: 'título'
+  url: 'url'
+  views: 'visualizações'
+  show: 'visualizar'
+  destroy: 'apagar'
+  new: 'novo'
+  play_back: 'vídeo'
+  play_backs: 'Vídeos'
   errors:
       messages:
         invalid_zipcode: 'está inválido.'
