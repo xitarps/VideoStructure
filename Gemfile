@@ -34,6 +34,9 @@ gem 'devise'
 # CarrierWave - https://github.com/carrierwaveuploader/carrierwave
 gem 'carrierwave'
 
+# CarrierWaveVideo - https://github.com/rheaton/carrierwave-video
+gem "carrierwave-video"
+
 group :production do
   gem 'pg'
 end
