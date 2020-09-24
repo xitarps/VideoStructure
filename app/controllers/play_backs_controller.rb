@@ -58,6 +58,6 @@ class PlayBacksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def play_back_params
-    params.require(:play_back).permit(:title, :url, :views)
+    params.require(:play_back).permit(:title, :url, :views, :video)
   end
 end

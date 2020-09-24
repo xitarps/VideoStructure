@@ -42,6 +42,7 @@ AllCops:
     - 'app/models/country.rb'
     - 'spec/factories/self_tests.rb'
     - 'spec/requests/user_create_social_distances_spec.rb'
+    - 'app/uploaders/video_uploader.rb'
 
 Style/ClassAndModuleChildren:
   Enabled: false

@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 #Devise - https://github.com/heartcombo/devise
 gem 'devise'
 
+# CarrierWave - https://github.com/carrierwaveuploader/carrierwave
+gem 'carrierwave'
+
 group :production do
   gem 'pg'
 end

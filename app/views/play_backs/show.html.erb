@@ -6,6 +6,10 @@
 </p>
 
 <p>
+  <%= video_tag(@play_back.video_url.to_s ,controls: true, autoplay: :autoplay) %>
+</p>
+
+<p>
   <strong><%= t(:url).capitalize %>:</strong>
   <%= @play_back.url %>
 </p>
