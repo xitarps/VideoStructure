@@ -1,0 +1,3 @@
+#EXTM3U
+#EXT-X-STREAM-INF:BANDWIDTH=540
+http://127.0.0.1:3000/uploads/play_back/video/7/file_example_MP4_480_1_5MG.mp4.m3u8
