@@ -25,7 +25,7 @@ class PlayBacksController < ApplicationController
   # POST /play_backs.json
   def create
     @play_back = PlayBack.new(play_back_params)
-    if @play_back.save && send_m3u8
+    if @play_back.save && generate_m3u8
       redirect_to @play_back, notice: "#{t(:play_back)} #{t(:created)}."
     else
       render :new
@@ -61,36 +61,39 @@ class PlayBacksController < ApplicationController
     params.require(:play_back).permit(:title, :url, :views, :video)
   end
 
-  def send_m3u8
+  def generate_m3u8
     require 'm3u8'
     require 'tempfile'
     require 'fileutils'
 
     absolute_path = request.original_url
     video_path = File.join 'uploads', 'play_back', 'video', @play_back.id.to_s
-    path = File.join Rails.root, 'public', 'uploads', 'play_back', 'video', @play_back.id.to_s
-    FileUtils.mkdir_p(path) unless File.exist?(path) 
+    path = File.join Rails.root, 'public', 'uploads', 'play_back',
+                                 'video', @play_back.id.to_s
+    FileUtils.mkdir_p(path) unless File.exist?(path)
 
-    @playlist = M3u8::Playlist.new
+    @address = @play_back.video_url.to_s.split('/')
+    name = @address.pop
 
-    name = @play_back.video_url.to_s.split('/').pop
+    in_= "#{path}/#{name}"
+    out_ = "#{in_}.m3u8"
+    ffmpeg = "ffmpeg -i #{in_} -hls_time 20 -hls_flags single_file #{out_}"
 
-    unless (File.exist?("#{path}/#{name}"))
-      #move between folders due heroku breaks
-      FileUtils.mv("#{Rails.root}/public#{@play_back.video_url.to_s}", "#{path}/#{name}")
+    unless (File.exist?(in_))
+      FileUtils.mv("#{Rails.root}/public#{@play_back.video_url.to_s}", in_)
     end
-    unless (File.exist?("#{path}/#{name}.ts"))
-      #disabled due heroku build pack ffmpeg not implemented in this app yet
-      system("ffmpeg -i #{path}/#{name} -c:v libx264 -c:a aac -b:a 160k -bsf:v h264_mp4toannexb -f mpegts -crf 32 #{path}/#{name}.ts ");
+    unless (File.exist?("#{in_}.m3u8"))
+      system(ffmpeg)
     end
+    
+    master_playlist = M3u8::Playlist.new
+    options = { level: 4.1, audio_codec: 'aac-lc', bandwidth: 540,
+                uri: "#{request.base_url}/#{video_path}/#{name}.m3u8" }
+    item = M3u8::PlaylistItem.new(options)
+    master_playlist.items << item
+    File.write("#{path}/master_#{name}.m3u8", "#{master_playlist.to_s}")
 
-    @options = { version: 1, cache: false, target: 12, sequence: 1 }
-    @playlist = M3u8::Playlist.new(@options)
-    @item = M3u8::SegmentItem.new(duration: 11, segment: "#{request.base_url}/#{video_path}/#{name}")
-    @playlist.items << @item
-    playlist = M3u8::Playlist.read(@playlist.to_s)
-
-    File.write("#{path}/video.mp4.m3u8", "#EXTM3U\n#{playlist.items.first}")
-    @play_back.update(url: "#{request.base_url}/#{video_path}/video.mp4.m3u8")
+    new_url = "#{request.base_url}/#{video_path}/master_#{name}.m3u8"
+    @play_back.update(url: new_url)
   end
 end
