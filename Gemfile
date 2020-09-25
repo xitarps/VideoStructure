@@ -40,6 +40,9 @@ gem "carrierwave-video"
 # m3u8 - https://github.com/sethdeckard/m3u8
 gem 'm3u8'
 
+# rack cors - https://github.com/cyu/rack-cors
+gem 'rack-cors'
+
 group :production do
   gem 'pg'
 end
