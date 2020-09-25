@@ -60,7 +60,7 @@ class PlayBacksController < ApplicationController
   def play_back_params
     params.require(:play_back).permit(:title, :url, :views, :video)
   end
-
+  # rubocop:disable all
   def generate_m3u8
     require 'm3u8'
     require 'tempfile'
@@ -96,4 +96,5 @@ class PlayBacksController < ApplicationController
     new_url = "#{request.base_url}/#{video_path}/master_#{name}.m3u8"
     @play_back.update(url: new_url)
   end
+  # rubocop:enable all
 end
