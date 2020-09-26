@@ -44,6 +44,7 @@ Algumas propostas futuras de desenvolvimento seriam:
 * CarrierWave
 * Rack-cors
 * Heroku
+* ffmpeg
 
 
 - counter proprieties, based on: https://github.com/filhodoto/videojs-counter-plugin
