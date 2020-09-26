@@ -21,8 +21,8 @@
           <td><%= play_back.title %></td>
           <td><%= play_back.url.truncate(10) %></td>
           <td><%= play_back.views %></td>
-          <td><%= link_to(play_back, class: "action_icons") do %> &#128065; <% end %></td>
-          <td><%= link_to(edit_play_back_path(play_back), class: "action_icons") do %>&#9997; <% end %></td>
+          <td><%= link_to(play_back, class: "action_icons", data:{reason: 'view'}) do %> &#128065; <% end %></td>
+          <td><%= link_to(edit_play_back_path(play_back), class: "action_icons", data:{reason: 'edit'}) do %>&#9997; <% end %></td>
           <td><%= link_to(play_back, method: :delete, data: { confirm: 'Are you sure?' }, class: "action_icons") do %> &#10060; <% end %></td>
         </tr>
       <% end %>
