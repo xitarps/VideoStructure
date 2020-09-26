@@ -1,6 +1,8 @@
-<p id='notice'><%= notice %></p>
-
 <h1><%= t(:play_backs).capitalize %></h1>
+
+<p>
+  <%= link_to "#{t(:new).capitalize} #{t(:play_back).capitalize}", new_play_back_path, class:'btn btn-info custom_btn' %>
+</p>
 
 <table>
   <thead>
@@ -25,8 +27,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to "#{t(:new).capitalize} #{t(:play_back).capitalize}", new_play_back_path %> | 
-<%= link_to t(:back).capitalize, root_path %>

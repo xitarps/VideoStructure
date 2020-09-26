@@ -11,10 +11,16 @@
 
   <body>
     <% if flash[:notice]%>
-      <p class="notice"><%= notice %></p>
+    <div class="alert alert-secondary" role="alert">
+      <%= notice %>
+    </div>
+      <!--<p class="notice"><%= notice %></p>-->
     <% end %>
     <% if flash[:alert]%>
-      <p class="alert"><%= alert %></p>
+    <div class="alert alert-secondary" role="alert">
+      <%= alert %>
+    </div>
+      <!--<p class="alert"><%= alert %></p>-->
     <% end %>
 
     <%= render 'shared/header' if signed_in? %>

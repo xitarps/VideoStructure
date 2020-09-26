@@ -28,6 +28,7 @@ pt-BR:
   create_account: 'criar conta'
   password: 'senha'
   log_in: 'entrar'
+  log_out: 'sair'
   welcome_message: 'Olá, esse é um sistema para visualização de vídeos, aproveite a diversão :)!'
   logout: 'sair'
   sign_up: 'cadastrar'
