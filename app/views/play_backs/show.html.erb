@@ -37,11 +37,11 @@
 
 <p>
   
-  <% if @play_back.views > 0%>
+  <% if @play_back.views > 0 %>
     <strong><%= t(:views).capitalize %>: </strong>
-    <%= @play_back.views %> - (<%= Time.now.strftime("%d/%m/%Y %H:%M")%>)
+    <%= @play_back.views %> - (<%= Time.current.strftime("%d/%m/%Y %H:%M")%>)
   <% else%>
-    <%= t(:posted_at).capitalize %> - (<%= Time.now.strftime("%d/%m/%Y %H:%M")%>)
+    <%= t(:posted_at).capitalize %> - (<%= Time.current.strftime("%d/%m/%Y %H:%M")%>)
   <% end %>
   
 </p>
