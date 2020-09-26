@@ -25,9 +25,10 @@ class PlayBacksController < ApplicationController
   # POST /play_backs.json
   def create
     @play_back = PlayBack.new(play_back_params)
-    if @play_back.save && generate_m3u8
+    if try_saving
       redirect_to @play_back, notice: "#{t(:play_back)} #{t(:created)}."
     else
+      flash.now[:alert] = t(:oops_error)
       render :new
     end
   end
@@ -60,8 +61,8 @@ class PlayBacksController < ApplicationController
   def play_back_params
     params.require(:play_back)
           .permit(:title, :video)
-          .merge(url: @play_back.nil? ? 'link' : @play_back.url,
-                 views: @play_back.nil? ? 'link' : @play_back.views)
+          .merge(url: exist_play_back ? @play_back.url : 'link',
+                 views: exist_play_back ? @play_back.views : 0)
   end
   # rubocop:disable all
   def generate_m3u8
@@ -100,4 +101,12 @@ class PlayBacksController < ApplicationController
     @play_back.update(url: new_url)
   end
   # rubocop:enable all
+
+  def try_saving
+    !params[:play_back][:video].nil? && @play_back.save && generate_m3u8
+  end
+
+  def exist_play_back
+    !@play_back.nil? && @play_back.persisted?
+  end
 end

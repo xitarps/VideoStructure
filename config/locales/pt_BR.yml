@@ -96,12 +96,15 @@ pt-BR:
   play_back: 'vídeo'
   play_backs: 'Vídeos'
   posted_at: 'adicionado em'
+  upload_type_message: 'Favor utilizar arquivos .mp4'
+  oops_error: 'Oops, algo incorreto, pode ter esquecido algo?'
   errors:
       messages:
-        invalid_zipcode: 'está inválido.'
+        extension_whitelist_error: ' - Formato incorreto'
   activerecord:
     models:
       user: 'usuário'
+      play_back: 'vídeo'
     attributes:
       user:
         name: 'nome'
@@ -110,6 +113,10 @@ pt-BR:
         password_confirmation: 'confirmação de senha'
         email: 'email'
         inclusion: 'inclusao'
+      play_back:
+        video: 'vídeo'
+        title: 'titulo'
+        url: 'url'
     errors:
       messages:
         inclusion: 'não selecionada'
