@@ -1,11 +1,13 @@
 class PlayBacksController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
   before_action :set_play_back, only: %i[show edit update destroy]
+  before_action :check_owner, only: %i[edit update destroy]
 
   # GET /play_backs
   # GET /play_backs.json
   def index
-    @play_backs = PlayBack.all
+    @user = User.find(current_user.id)
+    @play_backs = @user.play_backs
   end
 
   # GET /play_backs/1
@@ -64,7 +66,8 @@ class PlayBacksController < ApplicationController
     params.require(:play_back)
           .permit(:title, :video)
           .merge(url: exist_play_back ? @play_back.url : 'link',
-                 views: exist_play_back ? @play_back.views : 0)
+                 views: exist_play_back ? @play_back.views : 0,
+                 user_id: current_user.id)
   end
   # rubocop:disable all
   def generate_m3u8

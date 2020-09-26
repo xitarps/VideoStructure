@@ -47,7 +47,9 @@
 </p>
 
 <% if signed_in? %>
-  <%= link_to t(:edit).capitalize , edit_play_back_path(@play_back) %> |
+  <% unless @play_back.user.id != current_user.id %>
+    <%= link_to t(:edit).capitalize , edit_play_back_path(@play_back) %> |
+  <% end %>
   <%= link_to t(:back).capitalize , play_backs_path %>
 <% else %>
   <%= link_to t(:home).capitalize , root_path %>

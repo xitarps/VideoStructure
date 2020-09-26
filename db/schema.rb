@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_014521) do
+ActiveRecord::Schema.define(version: 2020_09_26_074721) do
 
   create_table "play_backs", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_09_24_014521) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "video"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_play_backs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,4 +35,5 @@ ActiveRecord::Schema.define(version: 2020_09_24_014521) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "play_backs", "users"
 end

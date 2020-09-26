@@ -1,8 +1,6 @@
 <%= form_with(model: play_back, local: true) do |form| %>
   <% if play_back.errors.any? %>
     <div id='error_explanation'>
-      <!--<h2><%= pluralize(play_back.errors.count, 'error') %> prohibited this play_back from being saved:</h2>-->
-
       <ul>
         <% play_back.errors.full_messages.each do |message| %>
           <li><%= message %></li>

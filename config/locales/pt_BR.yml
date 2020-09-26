@@ -89,7 +89,7 @@ pt-BR:
   wip: 'Work in progress...'
   title: 'título'
   url: 'url'
-  create: 'cricar novo'
+  create: 'criar novo'
   created: 'criado'
   views: 'visualizações'
   show: 'visualizar'
@@ -101,6 +101,7 @@ pt-BR:
   posted_at: 'adicionado em'
   upload_type_message: 'Favor utilizar arquivos .mp4'
   oops_error: 'Oops, algo incorreto, pode ter esquecido algo?'
+  oops_401: "oops, parece com erro 404 ou 401 :( poxa... melhor entrar em contato com admin"
   errors:
       messages:
         extension_whitelist_error: ' - Formato incorreto'
@@ -129,3 +130,8 @@ pt-BR:
         confirmation: 'parece diferente, insira igual'
         too_long: 'supera o limite de caracteres, que é: %{count}'
         too_short: 'Inferior ao mínimo de caracteres'
+      models:
+        play_back:
+          attributes:
+            user:
+              required: " - video precisa de um usuario"
