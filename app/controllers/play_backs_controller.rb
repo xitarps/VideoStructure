@@ -1,4 +1,5 @@
 class PlayBacksController < ApplicationController
+  before_action :authenticate_user!, except: %i[show]
   before_action :set_play_back, only: %i[show edit update destroy]
 
   # GET /play_backs
@@ -47,6 +48,7 @@ class PlayBacksController < ApplicationController
   # DELETE /play_backs/1.json
   def destroy
     @play_back.destroy
+    erase_data
     redirect_to play_backs_url, notice: "#{t(:play_back)} #{t(:destroyed)}."
   end
 
@@ -108,5 +110,15 @@ class PlayBacksController < ApplicationController
 
   def exist_play_back
     !@play_back.nil? && @play_back.persisted?
+  end
+
+  def erase_data
+    require 'fileutils'
+
+    prefix = request.base_url
+    suffix = @play_back.url.split('/').pop
+    dir = @play_back.url.delete_suffix(suffix)
+    dir = dir.delete_prefix(prefix)
+    FileUtils.rm_rf("public#{dir}")
   end
 end

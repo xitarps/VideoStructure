@@ -1,3 +1,9 @@
-<h1><%= I18n.t(:video_structure_main_title).capitalize %></h1>
-<marquee><%= I18n.t(:wip).capitalize %></marquee>
-<%= link_to "Vídeos", play_backs_path %>
+<h1><%= t(:video_structure_main_title).capitalize %></h1>
+<h4><%= t(:welcome_message).capitalize %></h4>
+<marquee><%= t(:wip).capitalize %></marquee>
+<h6>
+    <%= link_to t(:enter).capitalize , new_user_session_path %>
+</h6>
+<h6>
+    <%= link_to t(:create_account).capitalize , new_user_registration_path %>
+</h6>

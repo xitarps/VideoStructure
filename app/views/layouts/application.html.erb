@@ -17,6 +17,8 @@
       <p class="alert"><%= alert %></p>
     <% end %>
 
+    <%= render 'shared/header' if signed_in? %>
+
     <%= yield %>
   </body>
 </html>
