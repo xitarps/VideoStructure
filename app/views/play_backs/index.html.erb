@@ -1,29 +1,31 @@
-<h1><%= t(:play_backs).capitalize %></h1>
+<div class="justify-content-around">
+  <h2><%= t(:play_backs).capitalize %></h2>
 
-<p>
-  <%= link_to "#{t(:new).capitalize} #{t(:play_back).capitalize}", new_play_back_path, class:'btn btn-info custom_btn' %>
-</p>
+  <p>
+    <%= link_to "#{t(:new).capitalize} #{t(:play_back).capitalize}", new_play_back_path, class:'btn btn-info custom_btn' %>
+  </p>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t(:title).capitalize %></th>
-      <th><%= t(:url).capitalize %></th>
-      <th><%= t(:views).capitalize %></th>
-      <th colspan='3'></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @play_backs.each do |play_back| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= play_back.title %></td>
-        <td><%= play_back.url %></td>
-        <td><%= play_back.views %></td>
-        <td><%= link_to t(:show).capitalize, play_back %></td>
-        <td><%= link_to t(:edit).capitalize, edit_play_back_path(play_back) %></td>
-        <td><%= link_to t(:destroy).capitalize, play_back, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= t(:title).capitalize %></th>
+        <th><%= t(:url).capitalize %></th>
+        <th><%= t(:views).capitalize %></th>
+        <th colspan='3'></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @play_backs.each do |play_back| %>
+        <tr>
+          <td><%= play_back.title %></td>
+          <td><%= play_back.url.truncate(10) %></td>
+          <td><%= play_back.views %></td>
+          <td><%= link_to(play_back, class: "action_icons") do %> &#128065; <% end %></td>
+          <td><%= link_to(edit_play_back_path(play_back), class: "action_icons") do %>&#9997; <% end %></td>
+          <td><%= link_to(play_back, method: :delete, data: { confirm: 'Are you sure?' }, class: "action_icons") do %> &#10060; <% end %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

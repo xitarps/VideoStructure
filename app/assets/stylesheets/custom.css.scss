@@ -5,3 +5,49 @@
     margin-top: 1em !important;
     margin-bottom: 1em !important;
 }
+
+.custom_btn_sm{
+    padding: 0.2em;
+    padding-right: 1.5em !important;
+    padding-left: 1.5em !important;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+    margin-right: 0.5em !important;
+    margin-left: 0.5em !important;
+    
+}
+.custom_btn_sm_no_h_margin{
+    padding: 0.2em;
+    padding-right: 1.5em !important;
+    padding-left: 1.5em !important;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    
+}
+
+.field_with_errors{
+    background-color: #ffffff00 !important;
+}
+
+.action_icons{
+    font-size: 2em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    background-color: #8080802f;
+    border-radius: 50%;
+    padding: 0.5em;
+}
+
+.custom_link{
+    color: #0077ff !important;
+}
+#my-video{
+    width: 100%;
+    height: 48vh;
+}
+
+.custom_field{
+    padding-top: 1em !important;
+}

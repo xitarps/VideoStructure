@@ -1,6 +1,8 @@
-<h1>Editing Play Back</h1>
+<div>
+    <h2>Editing Play Back</h2>
 
-<%= render 'form', play_back: @play_back %>
+    <%= render 'form', play_back: @play_back %>
 
-<%= link_to t(:show).capitalize, @play_back %> |
-<%= link_to t(:back).capitalize, play_backs_path %>
+    <%= link_to t(:show).capitalize, @play_back, class:'btn btn-info custom_btn_sm_no_h_margin' %>
+    <%= link_to t(:back).capitalize, play_backs_path, class:'btn btn-info custom_btn_sm_no_h_margin' %>
+</div>

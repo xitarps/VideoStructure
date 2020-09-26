@@ -1,3 +1,4 @@
+<div class="col justify-content-center">
 <!-- VideoJs-->
 <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
 <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
@@ -18,7 +19,6 @@
   <video
     id="my-video"
     class="video-js"
-    width="720"
     data-setup='{ "controls": true, "autoplay": true, "preload": "auto" }'
   >
     <source src="<%= @play_back.url %>" type="application/x-mpegURL" />
@@ -32,7 +32,8 @@
 
 <p>
   <strong><%= t(:url).capitalize %>:</strong>
-  <%= @play_back.url %>
+  <%= link_to @play_back.url.truncate(30), @play_back.url, class: 'custom_link'%>
+  <% @play_back.url %>
 </p>
 
 <p>
@@ -48,10 +49,10 @@
 
 <% if signed_in? %>
   <% unless @play_back.user.id != current_user.id %>
-    <%= link_to t(:edit).capitalize , edit_play_back_path(@play_back) %> |
+    <%= link_to t(:edit).capitalize , edit_play_back_path(@play_back), class:'btn btn-info custom_btn_sm' %>
   <% end %>
-  <%= link_to t(:back).capitalize , play_backs_path %>
+  <%= link_to t(:back).capitalize , play_backs_path, class:'btn btn-info custom_btn_sm' %>
 <% else %>
-  <%= link_to t(:home).capitalize , root_path %>
+  <%= link_to t(:home).capitalize , root_path, class:'btn btn-info custom_btn_sm' %>
 <% end %>
-
+</div>

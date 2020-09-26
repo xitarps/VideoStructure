@@ -1,9 +1,13 @@
-<h1><%= t(:video_structure_main_title).capitalize %></h1>
-<h4><%= t(:welcome_message).capitalize %></h4>
-<marquee><%= t(:wip).capitalize %></marquee>
-<h6>
-    <%= link_to t(:enter).capitalize , new_user_session_path %>
-</h6>
-<h6>
-    <%= link_to t(:create_account).capitalize , new_user_registration_path %>
-</h6>
+<div class="col col-lg-8">
+  <h1><%= t(:video_structure_main_title).capitalize %></h1>
+  <h4><%= t(:welcome_message).capitalize %></h4>
+  <marquee><%= t(:wip).capitalize %></marquee>
+  <div class="row justify-content-around">
+    <h6>
+        <%= link_to t(:enter).capitalize , new_user_session_path, class:'btn btn-lg btn-primary' %>
+    </h6>
+    <h6>
+        <%= link_to t(:create_account).capitalize , new_user_registration_path, class:'btn btn-lg btn-primary' %>
+    </h6>
+  </div>
+</div>

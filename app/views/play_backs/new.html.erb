@@ -1,5 +1,7 @@
-<h1><%= t(:new).capitalize %> <%= t(:play_back).capitalize %>:</h1>
+<div>
+    <h2><%= t(:new).capitalize %> <%= t(:play_back).capitalize %>:</h2>
 
-<%= render 'form', play_back: @play_back %>
+    <%= render 'form', play_back: @play_back %>
 
-<%= link_to t(:back).capitalize , play_backs_path %>
+    <%= link_to t(:back).capitalize , play_backs_path, class:'btn btn-info custom_btn_sm_no_h_margin' %>
+</div>

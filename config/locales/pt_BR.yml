@@ -91,7 +91,7 @@ pt-BR:
   url: 'url'
   create: 'criar novo'
   created: 'criado'
-  views: 'visualizações'
+  views: 'visto'
   show: 'visualizar'
   destroy: 'apagar'
   destroyed: 'apagado'

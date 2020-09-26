@@ -9,17 +9,17 @@
     </div>
   <% end %>
 
-  <div class='field'>
+  <div class='field custom_field'>
     <%= form.label :title, t(:title).capitalize %>
     <%= form.text_field :title %>
   </div>
 
-  <div class='field'>
+  <div class='field custom_field'>
     <%= form.label :video, t(:upload_type_message).capitalize %>
     <%= form.file_field :video%>
   </div>
 
-  <div class='actions'>
+  <div class='actions custom_field'>
     <%= form.submit t(:save).capitalize %>
   </div>
 <% end %>
