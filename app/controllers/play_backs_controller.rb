@@ -58,7 +58,10 @@ class PlayBacksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def play_back_params
-    params.require(:play_back).permit(:title, :url, :views, :video)
+    params.require(:play_back)
+          .permit(:title, :video)
+          .merge(url: @play_back.nil? ? 'link' : @play_back.url,
+                 views: @play_back.nil? ? 'link' : @play_back.views)
   end
   # rubocop:disable all
   def generate_m3u8

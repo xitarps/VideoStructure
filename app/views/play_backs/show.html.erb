@@ -11,6 +11,10 @@
 </p>
 
 <p>
+  <!--counter proprieties, based on: https://github.com/filhodoto/videojs-counter-plugin-->
+  <span id="video_id" style="display: none;"><%= @play_back.id %></span>
+  <span id="counter_path" style="display: none;"><%= count_path %></span>
+
   <video
     id="my-video"
     class="video-js"
@@ -22,6 +26,8 @@
   </video>
 
   <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+  <%= javascript_pack_tag "videojs_custom" , 'data-turbolinks-track': 'reload' %>
+  
 </p>
 
 <p>
@@ -30,9 +36,16 @@
 </p>
 
 <p>
-  <strong><%= t(:views).capitalize %>:</strong>
-  <%= @play_back.views %>
+  
+  <% if @play_back.views > 0%>
+    <strong><%= t(:views).capitalize %>: </strong>
+    <%= @play_back.views %> - (<%= Time.now.strftime("%d/%m/%Y %H:%M")%>)
+  <% else%>
+    <%= t(:posted_at).capitalize %> - (<%= Time.now.strftime("%d/%m/%Y %H:%M")%>)
+  <% end %>
+  
 </p>
+
 
 <%= link_to t(:edit).capitalize , edit_play_back_path(@play_back) %> |
 <%= link_to t(:back).capitalize , play_backs_path %>

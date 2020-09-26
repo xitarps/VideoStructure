@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2020_09_24_014521) do
 
   create_table "play_backs", force: :cascade do |t|
     t.string "title"
-    t.string "url"
-    t.integer "views"
+    t.string "url", default: "https://"
+    t.integer "views", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "video"

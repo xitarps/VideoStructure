@@ -95,6 +95,7 @@ pt-BR:
   new: 'novo'
   play_back: 'vídeo'
   play_backs: 'Vídeos'
+  posted_at: 'adicionado em'
   errors:
       messages:
         invalid_zipcode: 'está inválido.'
