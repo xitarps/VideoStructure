@@ -53,6 +53,10 @@ Algumas propostas futuras de desenvolvimento seriam:
 
 ## Sistema em ação:
 
+https://video-structure.herokuapp.com/
+
+## Screens:
+
 ![dashboard](git_images/prints/dash_board_small.png)
 ![show](git_images/prints/show_small.png)
 
